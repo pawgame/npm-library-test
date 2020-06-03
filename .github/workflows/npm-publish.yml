@@ -37,7 +37,7 @@ jobs:
       - run: npm publish
       - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+          NODE_AUTH_TOKEN: ${{secrets.npm-deploy}}
 
   publish-gpr:
     needs: build
@@ -49,6 +49,12 @@ jobs:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
       - run: npm ci
+      - run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - run: SPACE_CHAR=" "
+      - run: npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]" -t "${TAG_PREFIX}"
       - run: npm publish
+      - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.npm-deploy}}
