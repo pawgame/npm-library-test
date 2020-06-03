@@ -18,5 +18,8 @@
   "homepage": "https://github.com/pawgame/npm-library-test#readme",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
+  },
+  "dependencies": {
+    "moment": "^2.26.0"
   }
 }
