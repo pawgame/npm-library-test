@@ -37,7 +37,7 @@ jobs:
       - run: npm publish
       - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm-deploy}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
 
   publish-gpr:
     needs: build
@@ -57,4 +57,4 @@ jobs:
       - run: npm publish
       - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.npm-deploy}}
+          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
