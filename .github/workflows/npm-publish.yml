@@ -48,6 +48,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://npm.pkg.github.com/
+          scope: '@pawgame'
       - run: npm ci
       - run: |
           git config --local user.email "action@github.com"
