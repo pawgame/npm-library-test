@@ -1,0 +1,22 @@
+{
+  "name": "@pawgame/npm-library-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pawgame/npm-library-test.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pawgame/npm-library-test/issues"
+  },
+  "homepage": "https://github.com/pawgame/npm-library-test#readme",
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  }
+}
