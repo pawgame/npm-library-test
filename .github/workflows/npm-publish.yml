@@ -18,8 +18,6 @@ jobs:
           node-version: 12
       - run: npm ci
       - run: npm test
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
 
   publish-npm:
     needs: build
@@ -35,10 +33,14 @@ jobs:
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - run: SPACE_CHAR=" "
-      - run: npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]" -t "${TAG_PREFIX}"
-      - run: npm publish
-      - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
+          SPACE_CHAR=" "
+          npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]" -t "${TAG_PREFIX}"
+          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
+          npm config set scope "@pawgame"
+          npm config list
+          npm publish --access public 
+          npm publish
+          git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
 
@@ -56,9 +58,9 @@ jobs:
       - run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-      - run: SPACE_CHAR=" "
-      - run: npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]" -t "${TAG_PREFIX}"
-      - run: npm publish
-      - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
+          SPACE_CHAR=" "
+          npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]" -t "${TAG_PREFIX}"
+          npm publish
+          git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
