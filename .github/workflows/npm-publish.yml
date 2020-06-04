@@ -38,7 +38,7 @@ jobs:
           scope: '@pawgame'
       - run: npm ci
       - run: |
-          git checkout $CI_COMMIT_REF_NAME
+          git pull -f
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           npm config set scope "@pawgame"
           npm config list
@@ -58,7 +58,7 @@ jobs:
           scope: '@pawgame'
       - run: npm ci
       - run: |
-          git checkout $CI_COMMIT_REF_NAME
+          git pull -f
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
