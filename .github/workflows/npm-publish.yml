@@ -28,6 +28,7 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
+          scope: '@pawgame'
       - run: npm ci
       - run: |
           git config --local user.email "action@github.com"
@@ -37,7 +38,7 @@ jobs:
       - run: npm publish
       - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
 
   publish-gpr:
     needs: build
@@ -58,4 +59,4 @@ jobs:
       - run: npm publish
       - run: git push --follow-tags origin $CI_COMMIT_REF_NAME
         env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_PUBLISH_TOKEN}}
+          NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
