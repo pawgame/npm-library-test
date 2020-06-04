@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.4 (2020-06-04)
+
+
+### Bug Fixes
+
+* yml format error ([27b265f](https://github.com/pawgame/npm-library-test/commit/27b265ffc5184a2df2651a4641d63a4631b145da))
+
 ### 1.0.3 (2020-06-04)
 
 
