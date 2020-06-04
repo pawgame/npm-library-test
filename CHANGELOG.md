@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.3 (2020-06-04)
+
+
+### Bug Fixes
+
+* fix double publish npmjs ([2e054db](https://github.com/pawgame/npm-library-test/commit/2e054dba6462d973ad04b71a158f47f273469f45))
+
 ### 1.0.2 (2020-06-04)
 
 
