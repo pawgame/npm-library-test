@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### 1.0.5 (2020-06-04)
+
+
+### Bug Fixes
+
+* git ([80a7a8e](https://github.com/pawgame/npm-library-test/commit/80a7a8eebac0fb9d6fc137fcb0607b3ddae1f047))
+
 ### 1.0.4 (2020-06-04)
 
 
